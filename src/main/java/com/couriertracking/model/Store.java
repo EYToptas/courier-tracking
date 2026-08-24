@@ -4,10 +4,12 @@ import io.lettuce.core.DriverInfo;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name="stores")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Store {
+public class Store implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

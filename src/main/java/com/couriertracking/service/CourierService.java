@@ -1,5 +1,6 @@
 package com.couriertracking.service;
 
+import com.couriertracking.dto.CourierDistanceResponse;
 import com.couriertracking.dto.CourierRequest;
 import com.couriertracking.dto.CourierResponse;
 import com.couriertracking.exception.ResourceNotFoundException;
@@ -30,6 +31,11 @@ public class CourierService {
     public CourierResponse getByID(Long id){
         return CourierMapper.toResponse(searchId(id));
 
+    }
+
+    public CourierDistanceResponse getTotalDistance(Long id) {
+        Courier courier = searchId(id);
+        return new CourierDistanceResponse(courier.getId(), courier.getTotalDistanceMeters());
     }
 
     public CourierResponse update(Long id, CourierRequest request){

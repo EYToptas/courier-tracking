@@ -1,6 +1,7 @@
 package com.couriertracking.controller;
 
 
+import com.couriertracking.dto.CourierDistanceResponse;
 import com.couriertracking.dto.CourierRequest;
 import com.couriertracking.dto.CourierResponse;
 import com.couriertracking.service.CourierService;
@@ -43,6 +44,11 @@ public class CourierController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         courierService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/distance")
+    public ResponseEntity<CourierDistanceResponse> getTotalDistance(@PathVariable Long id) {
+        return ResponseEntity.ok(courierService.getTotalDistance(id));
     }
 
 }
