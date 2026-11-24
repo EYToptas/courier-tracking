@@ -45,7 +45,7 @@ public class CourierService {
     }
     public void delete(Long id) {
 
-        courierRepository.deleteXById(id);
+        courierRepository.deleteByXId(id);
 
     }
 
