@@ -44,7 +44,9 @@ public class CourierService {
         return CourierMapper.toResponse(courierRepository.save(courier));
     }
     public void delete(Long id) {
-        courierRepository.delete(searchId(id));
+
+        courierRepository.deleteXById(id);
+
     }
 
     private Courier searchId(Long id) {
